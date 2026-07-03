@@ -88,7 +88,7 @@ class ImgBBUploader {
 }
 
 const IMG_BB_CONFIG = {
-  API_KEY: "9518c1dc7b1699ec13712fa05379dd94",
+  API_KEY: "fbd9352338f005b14080bb5d2beb8ca0",
   ALBUM_ID: "SRvypj",
 };
 const getImgBBUploader = () =>

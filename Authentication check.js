@@ -11,7 +11,7 @@ import {
 
 // Auto-redirect if already logged in
 onAuthStateChanged(auth, (user) => {
-  if (user) window.location.href = "dashboard.html";
+  if (user) window.location.href = "views/citizen/dashboard.html";
 });
 
 // Login Logic
