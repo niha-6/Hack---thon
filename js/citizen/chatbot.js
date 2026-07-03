@@ -88,7 +88,7 @@ if (langSelect) {
 }
 
 // ================= AI SETUP =================
-const API_KEY = "AIzaSyBQVft6s6WVov595Q6y2FY6nEjwnQiQ0_8"; // Add your Gemini API key here
+const API_KEY = "AQ.Ab8RN6J-xo_qrzIiSwmFZh6THXzLRiKHejYzPMOu5LKxHCkbjw"; // Add your Gemini API key here
 // Using fetch directly — avoids SDK version/API compatibility issues
 
 const chatBody        = document.getElementById("chatBody");
