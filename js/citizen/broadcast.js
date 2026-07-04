@@ -197,7 +197,7 @@ onSnapshot(q, async (snapshot) => {
       createdAt: raw.createdAt,
     });
   });
-  await renderBroadcasts();
+  renderBroadcasts();
   // Re-apply static labels in case lang was set before data arrived
   const _lang = localStorage.getItem("lang") || "en";
   if (_lang !== "en") updateStaticLabels();
@@ -213,7 +213,7 @@ if (langSelect) {
   langSelect.addEventListener("change", async () => {
     localStorage.setItem("lang", langSelect.value);
     updateStaticLabels();
-    await renderBroadcasts();
+    renderBroadcasts();
   });
 }
 
