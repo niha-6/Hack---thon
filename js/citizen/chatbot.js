@@ -174,19 +174,23 @@ ${historyContext}User: ${userText}
 Assistant:`;
 
     const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent`,
+      "https://openrouter.ai/api/v1/chat/completions",
       {
         method: "POST",
-        headers: { 
+        headers: {
           "Content-Type": "application/json",
-          "x-goog-api-key": API_KEY
+          "Authorization": `Bearer ${API_KEY}`,
         },
         body: JSON.stringify({
-          contents: [{ parts: [{ text: fullPrompt }] }],
-          generationConfig: { temperature: 0.7, maxOutputTokens: 1024 }
+          model: "google/gemini-flash-1.5",
+          messages: [{ role: "user", content: fullPrompt }],
+          max_tokens: 1024
         })
       }
-    );    if (!res.ok) {
+    );
+    const data = await res.json();
+    const aiText = data.choices?.[0]?.message?.content || t("errorMsg");
+    if (!res.ok) {
           const err = await res.json();
           throw new Error(err?.error?.message || `HTTP ${res.status}`);
         }
