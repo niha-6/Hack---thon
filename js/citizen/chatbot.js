@@ -88,7 +88,7 @@ if (langSelect) {
 }
 
 // ================= AI SETUP =================
-const API_KEY = "AQ.Ab8RN6J-xo_qrzIiSwmFZh6THXzLRiKHejYzPMOu5LKxHCkbjw"; // Add your Gemini API key here
+const API_KEY = "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"; // Add your Gemini API key here
 // Using fetch directly — avoids SDK version/API compatibility issues
 
 const chatBody        = document.getElementById("chatBody");
@@ -188,14 +188,12 @@ Assistant:`;
         })
       }
     );
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err?.error?.message || `HTTP ${res.status}`);
+    }
     const data = await res.json();
     const aiText = data.choices?.[0]?.message?.content || t("errorMsg");
-    if (!res.ok) {
-          const err = await res.json();
-          throw new Error(err?.error?.message || `HTTP ${res.status}`);
-        }
-    const data = await res.json();
-    const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || t("errorMsg");
 
     // Save to history
     conversationHistory.push({ role: "user",  text: userText });
