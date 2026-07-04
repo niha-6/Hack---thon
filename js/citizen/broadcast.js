@@ -209,7 +209,7 @@ if (langSelect) {
   const stored = localStorage.getItem("lang") || "en";
   langSelect.value = stored;
   updateStaticLabels();
-  if (stored !== "en") await renderBroadcasts();
+  if (stored !== "en") renderBroadcasts();
   langSelect.addEventListener("change", async () => {
     localStorage.setItem("lang", langSelect.value);
     updateStaticLabels();
