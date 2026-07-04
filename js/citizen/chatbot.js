@@ -182,7 +182,7 @@ Assistant:`;
           "Authorization": `Bearer ${API_KEY}`,
         },
         body: JSON.stringify({
-          model: "google/gemini-2.0-flash-001",
+          model: "google/gemini-2.0-flash-exp:free",
           messages: [{ role: "user", content: fullPrompt }],
           max_tokens: 1024
         })
